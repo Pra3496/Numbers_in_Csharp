@@ -2,25 +2,30 @@
 {
     internal class Program
     {
-        public static void DisplayTable(int iNo)
+        public static int facts(int iNo)
         {
-            int iCnt = 0;
+            int iMult = 1;
             if (iNo < 0)
+            { iNo = -iNo; }
+
+            while (iNo > 0)
             {
-                iNo = -iNo;
+                iMult = iMult * iNo;
+                iNo--;
             }
-            for (iCnt = 1; iCnt <= 10; iCnt++)
-            {
-                Console.WriteLine(iNo+" * "+iCnt+" = "+iNo*iCnt);       
-            }
+            return iMult;
         }
+    
         static void Main(string[] args)
         {
             int iValue = 0;
-            Console.WriteLine("Enter number :");
-            iValue = Convert.ToInt32(Console.ReadLine());
+            int iRet = 0;
 
-            DisplayTable(iValue);
+            Console.WriteLine("Enter number");
+            iValue = Convert.ToInt32(Console.ReadLine());
+            iRet = facts(iValue);
+            Console.WriteLine("Result is : " +iRet);
+
         }
     }
 }
